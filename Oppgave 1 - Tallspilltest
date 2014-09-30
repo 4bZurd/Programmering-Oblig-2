@@ -1,34 +1,71 @@
-import javax.swing.*
+import javax.swing.*;
 import java.util.*;
 
-
-public class Tallspilltest
+public class Tallspill
 {
 
-    public static final string [JA_NEI_ALTERNATIV]= {"Ja" + "Nei"};
+  private static final int MAX = 199;
+  private static final int  MIN = 1;
 
-    public static void main(String[] args)
-    {
-     Tallspill tallspill = new Tallspill
-     int svar;
+  public int nyttTall()
+  {
+     return (int) (Math.random()* (MIN + MAX));
+      //returnerer et slumptall mellom 0 og 200. >
+  }
+
+  public void visMelding(String melding)
+  {
+      JOptionPane.showMessageDialog(null,melding,null,JOptionPane.PLAIN_MESSAGE);
+    //Viser parameterens innhold i en meldingsboks. >
+  }
+
+  private void forLite( int tall )
+  {
+      visMelding(tall + " er for lite. Du må prøve igjen. ");
+    // Viser melding om at parameterens verdi er for
+    // lite tall og ber spilleren prøve igjen. >
+  }
+
+  private void forStort( int tall )
+  {
+      visMelding(tall + " er for stort. Du må prøve igjen");
+    // Viser melding om at parameterens verdi er for
+     // stort tall og ber spilleren prøve igjen. >
+  }
+
+  public void avsluttRunde( int antall, int gjetning )
+  {
+      visMelding( gjetning + "er riktig! \n Du gjettet riktig \n på " + antall + " forsøk.");
+    /* Viser melding om at det ble gjettet riktig
+      og antall gjetninger som ble brukt.
+      Parametrene gir opplysninger om dette. >*/
+  }
+
+  public void kjørSpill()
+  {
+      int tall = nyttTall();
+      int antallGjetninger= 0;
+      int gjetning;
+
 
      do
      {
-         tallspill.kjørSpill;
-           String[] alternativ = { "Ja", "Nei"};
-           int svar = JOptionPane.showOptionDialog( null,
-           "Vil du prøve en runde til ?",
-           "Gratulerer!", JOptionPane.YES_NO_OPTION,
-           JOptionPane.QUESTION_MESSAGE, null, alternativ,
-           alternativ[ 0 ] );
+         gjetning = Integer.parseInt( JOptionPane.showInputDialog(null," Jeg tenker på et tall mellom " + MIN + " og " + MAX
+                                                                                     + " \n Prøv å gjette på tallet !" ));
+         antallGjetninger +=1;
 
-      } while ( svar == JOptionPane.YES_OPTION );
+       if ( gjetning < tall )
+                forLite( gjetning );
 
-        JOptionPane.showMessageDialog( null, "Takk for spillet!" );
+       else if ( gjetning > tall )
+                forStort( gjetning );
 
-     }
-         /* Driverklasse som oppretter et Tallspill-objekt
-         og kjører spillet gjentatte runder inntil
-         brukeren velger Ã¥ avslutte. >*/
+     } while ( tall != gjetning );
 
- }
+        avsluttRunde(antallGjetninger, gjetning);
+    }
+}     /* Kjører en spillrunde ved å trekke et tall,
+      nullstille tellevariabel, innhente gjentatte
+      gjetninger fra bruker inntil det gjettes riktig.
+      Når det skjer, avsluttes runden med passe
+      meldinger til spilleren. >*/
