@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Tallspill
 {
-  private random generator = new random();
+
   private static final int MAX = 199;
   private static final int  MIN = 1;
 
@@ -21,22 +21,21 @@ public class Tallspill
 
   private void forLite( int tall )
   {
-      visMelding(tall +"er for lite. Du må prøve igjen.")
+      visMelding(tall + " er for lite. Du må prøve igjen. ");
     // Viser melding om at parameterens verdi er for
-    // lite tall og ber spilleren prÃ¸ve igjen. >
+    // lite tall og ber spilleren prøve igjen. >
   }
 
   private void forStort( int tall )
   {
-      visMelding(tall + "er for stort. Du må prøve igjen")
+      visMelding(tall + " er for stort. Du må prøve igjen");
     // Viser melding om at parameterens verdi er for
      // stort tall og ber spilleren prøve igjen. >
   }
 
   public void avsluttRunde( int antall, int gjetning )
   {
-      visMeldig( gjetning + " Du gjettet riktig \n"
-              "på" + antall+ "forsøk."
+      visMelding( gjetning + "er riktig! \n Du gjettet riktig \n på " + antall + " forsøk.");
     /* Viser melding om at det ble gjettet riktig
       og antall gjetninger som ble brukt.
       Parametrene gir opplysninger om dette. >*/
@@ -51,8 +50,8 @@ public class Tallspill
 
      do
      {
-         gjetning = Integer.parsInt( JOptionPane.showMessageDialog( "Jeg tenker pÃ¥ et tall mellom " + MIN + " og " + MAX
-                                                                                     + ".\n Prøv å gjette på tallet:" ));
+         gjetning = Integer.parseInt( JOptionPane.showInputDialog(null," Jeg tenker på et tall mellom " + MIN + " og " + MAX
+                                                                                     + " \n Prøv å gjette på tallet !" ));
          antallGjetninger +=1;
 
        if ( gjetning < tall )
