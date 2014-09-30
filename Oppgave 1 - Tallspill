@@ -6,7 +6,7 @@ public class Tallspill
   private random generator = new random();
   private static final int MAX = 199;
   private static final int  MIN = 1;
-  
+
   public int nyttTall()
   {
      return (int) (Math.random()* (MIN + MAX));
@@ -23,7 +23,7 @@ public class Tallspill
   {
       visMelding(tall +"er for lite. Du må prøve igjen.")
     // Viser melding om at parameterens verdi er for
-    // lite tall og ber spilleren prøve igjen. >
+    // lite tall og ber spilleren prÃ¸ve igjen. >
   }
 
   private void forStort( int tall )
@@ -44,11 +44,29 @@ public class Tallspill
 
   public void kjørSpill()
   {
-      
-    /* Kjører en spillrunde ved å trekke et tall,
+      int tall = nyttTall();
+      int antallGjetninger= 0;
+      int gjetning;
+
+
+     do
+     {
+         gjetning = Integer.parsInt( JOptionPane.showMessageDialog( "Jeg tenker pÃ¥ et tall mellom " + MIN + " og " + MAX
+                                                                                     + ".\n Prøv å gjette på tallet:" ));
+         antallGjetninger +=1;
+
+       if ( gjetning < tall )
+                forLite( gjetning );
+
+       else if ( gjetning > tall )
+                forStort( gjetning );
+
+     } while ( tall != gjetning );
+
+        avsluttRunde(antallGjetninger, gjetning);
+    }
+}     /* Kjører en spillrunde ved å trekke et tall,
       nullstille tellevariabel, innhente gjentatte
       gjetninger fra bruker inntil det gjettes riktig.
       Når det skjer, avsluttes runden med passe
       meldinger til spilleren. >*/
-  }
-}
