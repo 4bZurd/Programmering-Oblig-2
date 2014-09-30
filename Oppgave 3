@@ -1,46 +1,42 @@
-package com.oblig2;
-
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 
 public class Oppgave3
 {
-     
-
-
      public static void main(String[] args)
      {
+		int tel = 0;
         char[] alfabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
         				'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Æ', 'Ø', 'Å'};
+
 	int antall = alfabet.length;
         String input = JOptionPane.showInputDialog(" Skriv inn en litt lang setning.");
-        input = input.toUpperCase();
-        JTextArea output = new JTextArea("Antall bokstaver i teksten \"" + input + "\":");
+        String inputUpper = input.toUpperCase();
+        JTextArea output = new JTextArea("Antall bokstaver i teksten \n" + input + ":\n");
 
 
-      
-        
+    	for (char alfa : alfabet)
+    	{
 
-    for (char alfa : alfabet)
-    {
-        int teller = 0;
-        for ( int i = 0; i < input.length(); i++ )
-        {
-            if (alfa == input.charAt(i))
-            {
-                teller++;
-            }
-            if( teller % 5==0)
-            {
-                alfa = alfa + "\n";
-            }
-        }
-        output.append(alfa + ": " + teller + ", " );
+			int teller = 0;
+			for ( int i = 0; i < inputUpper.length(); i++ )
+			{
+				if (alfa == inputUpper.charAt(i))
+				{
+					teller++;
+				}
 
-        
-    }
-    JOptionPane.showMessageDialog(null, output, "Antall bokstaver", JOptionPane.PLAIN_MESSAGE);
-}
+			}
+
+			if(tel%5==0){
+				output.append("\n");
+				}
+			output.append(alfa + ": " + teller + ", \t");
+			tel++;
+
+    	}
+    			JOptionPane.showMessageDialog(null, output, "Antall bokstaver", JOptionPane.PLAIN_MESSAGE);
+	}
 }
 
