@@ -1,1 +1,34 @@
-<some code here>
+import javax.swing.*
+import java.util.*;
+
+
+public class Tallspilltest
+{
+
+    public static final string [JA_NEI_ALTERNATIV]= {"Ja" + "Nei"};
+
+    public static void main(String[] args)
+    {
+     Tallspill tallspill = new Tallspill
+     int svar;
+
+     do
+     {
+         tallspill.kjørSpill;
+           String[] alternativ = { "Ja", "Nei"};
+           int svar = JOptionPane.showOptionDialog( null,
+           "Vil du prøve en runde til ?",
+           "Gratulerer!", JOptionPane.YES_NO_OPTION,
+           JOptionPane.QUESTION_MESSAGE, null, alternativ,
+           alternativ[ 0 ] );
+
+      } while ( svar == JOptionPane.YES_OPTION );
+
+        JOptionPane.showMessageDialog( null, "Takk for spillet!" );
+
+     }
+         /* Driverklasse som oppretter et Tallspill-objekt
+         og kjører spillet gjentatte runder inntil
+         brukeren velger Ã¥ avslutte. >*/
+
+ }
