@@ -1,31 +1,28 @@
-//Importerer swing for å kunne bruke JOptionPane
-import javax.swing.*; 
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
-class Oppgave3 {
-    public static void main(String[] args) {
-        //Ber om å få en setning fra brukeren
-        String phrase[] = {
-            JOptionPane.showInputDialog(null, "Skriv inn en litt lang setning:")
-        };
-        int[] letterCount = new int[26];
-        for (int count = 0; count < phrase.length; count++) {
-            String current = phrase[count];
-            char[] letters = current.toCharArray();
-            for (int count2 = 0; count2 < letters.length; count2++) {
-                char lett = letters[count2];
-                if ( (lett >= 'A') & (lett <= 'Z') ) {
-                    letterCount[lett - 'A']++;
-                }
-            }
-        }
-        for (char count = 'A'; count <= 'Z'; count++) {
-            JOptionPane.showMessageDialog(null, count + ": " +
-                    letterCount[count - 'A'] + 
-                    " ");
-            if (count == 'M') {
-                JOptionPane.showMessageDialog(null, "\n");
-            }
-        }
-        JOptionPane.showMessageDialog(null, "\n");
+public class Oppgave3
+{
+     char[] alfabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+        				'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Æ', 'Ø', 'Å'};
+
+
+     public static void main(String[] args)
+     {
+	 int[] antall = new int[alfabet.MAX_VALUE];
+     String input = JOptionPane.showInputDialog(" Skriv inn en litt lang setning.");
+     input = input.toUppercase();
+     JTextArea output = new JTextArea("Antall bokstaver i teksten " + input + ":");
+
+
+      for ( int i = 0; i < input.length(); i++ )
+            antall[(int) input.charAt(i)]++;
+
+        for ( int i = 0; i < alfabet.length; i++ )
+            if ( antall[(int) alfabet[i]] != 0 )
+                output.append( "\n" + alfabet[i] + ": " + antall[(int) alfabet[i]] );
+
+        JOptionPane.showMessageDialog(null, output, "Antall bokstaver", JOptionPane.PLAIN_MESSAGE);
     }
+} }
 }
