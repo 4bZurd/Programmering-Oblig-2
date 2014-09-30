@@ -1,30 +1,31 @@
-package com.oblig2;
-
-import javax.swing.*;
+//Importerer swing for å kunne bruke JOptionPane
+import javax.swing.*; 
 
 class Oppgave3 {
-    public static void main(String[] arguments) {
-    String input[];
-    input[] = jOptionPane.showInputDialog("Skriv inn en litt lang setning:");
-    }
-    int bokstaver[] = new int[29];
-    for (int telling = 0; telling < input.length; telling+1) {
-    String nåværende = input[telling];
-    char[] bokstaver2 = nåværende.toCharArray();
-    for(int telling2 = 0; telling2 < bokstaver2.length; telling2+1) {
-        char bokst = bokstaver2[telling2];
-        if ( (bokst >= 'A') & (bokst <= 'Å')) {
-            bokstaver(bokst - 'A')+1;
+    public static void main(String[] args) {
+        //Ber om å få en setning fra brukeren
+        String phrase[] = {
+            JOptionPane.showInputDialog(null, "Skriv inn en litt lang setning:")
+        };
+        int[] letterCount = new int[26];
+        for (int count = 0; count < phrase.length; count++) {
+            String current = phrase[count];
+            char[] letters = current.toCharArray();
+            for (int count2 = 0; count2 < letters.length; count2++) {
+                char lett = letters[count2];
+                if ( (lett >= 'A') & (lett <= 'Z') ) {
+                    letterCount[lett - 'A']++;
+                }
             }
         }
-    }
-    for (bokst telling = 'A'; telling <= 'Å'; telling+1) {
-        jOptionPane.showMessageDialog(telling + ": " +
-                bokstaver[telling - 'A'] + 
-                " ");
-        if (telling == 'M') {
-            jOptionPane.showMessageDialog("\n");
+        for (char count = 'A'; count <= 'Z'; count++) {
+            JOptionPane.showMessageDialog(null, count + ": " +
+                    letterCount[count - 'A'] + 
+                    " ");
+            if (count == 'M') {
+                JOptionPane.showMessageDialog(null, "\n");
+            }
         }
+        JOptionPane.showMessageDialog(null, "\n");
     }
-    jOptionPane.showMessageDialog("\n");
 }
