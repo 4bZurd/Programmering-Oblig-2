@@ -1,1 +1,30 @@
-<some code here>
+package com.oblig2;
+
+import javax.swing.*;
+
+class Oppgave3 {
+    public static void main(String[] arguments) {
+    String input[];
+    input[] = jOptionPane.showInputDialog("Skriv inn en litt lang setning:");
+    }
+    int bokstaver[] = new int[29];
+    for (int telling = 0; telling < input.length; telling+1) {
+    String nåværende = input[telling];
+    char[] bokstaver2 = nåværende.toCharArray();
+    for(int telling2 = 0; telling2 < bokstaver2.length; telling2+1) {
+        char bokst = bokstaver2[telling2];
+        if ( (bokst >= 'A') & (bokst <= 'Å')) {
+            bokstaver(bokst - 'A')+1;
+            }
+        }
+    }
+    for (bokst telling = 'A'; telling <= 'Å'; telling+1) {
+        jOptionPane.showMessageDialog(telling + ": " +
+                bokstaver[telling - 'A'] + 
+                " ");
+        if (telling == 'M') {
+            jOptionPane.showMessageDialog("\n");
+        }
+    }
+    jOptionPane.showMessageDialog("\n");
+}
