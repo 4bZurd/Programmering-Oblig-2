@@ -2,7 +2,7 @@
 Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
 Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-Oppgave 1 - Tallspill
+Oppgave 3
 */
 
 import javax.swing.JOptionPane;
