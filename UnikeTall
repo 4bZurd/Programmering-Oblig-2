@@ -1,4 +1,9 @@
-package com.oblig2;
+/*
+Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
+Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
+
+Oppgave 2
+*/
 
 import javax.swing.*;
 
