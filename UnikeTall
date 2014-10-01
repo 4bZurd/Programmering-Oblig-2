@@ -7,7 +7,7 @@ Oppgave 2
 
 import javax.swing.*;
 
-public class UnikeTall
+public class Uniketall
 {
    int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
    int lowerconstant = 100; // Deklarasjon av nedre grense
