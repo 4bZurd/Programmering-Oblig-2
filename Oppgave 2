@@ -1,1 +1,46 @@
-<some code here>
+package com.oblig2;
+
+import javax.swing.*;
+
+public class Oppgave2
+{
+   int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
+   int lowerconstant = 100; // Deklarasjon av nedre grense
+   int upperconstant = 1000; // Deklarasjon av øvre grense
+   
+   < Deklarasjon av array for lagring av tilfeldige heltall
+     og andre nødvendige variabler og/eller konstanter.  >
+
+     array = new int[arraylength];
+   < Konstruktør som mottar arrayens lengde som parameter og
+     oppretter arrayen.  >
+
+   < Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
+     Tallet det letes etter skal mottas som parameter.
+     Metoden skal returnere true hvis tallet finnes i arrayen.
+     Hvis ikke skal metoden returnere false. >
+
+   < Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
+     begge grenser inkludert. Metoden skal gjøre dette på en måte
+     som sikrer at alle tallene er forskjellige. Metoden skal ikke ha
+     parametre og heller ikke returnere noen verdi.  >
+
+   < Metode som finner og returnerer det minste tallet i arrayen. >
+
+   < Metode som finner og returnerer det største tallet i arrayen. >
+
+   <  Metode som beregner og returnerer den gjennomstnittlige verdien
+     (double-verdi) av tallene i arrayen.  >
+
+   < Metode som returnerer den heltallsverdien som ligger nærmest
+     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som
+     returnerer absoluttverdien til uttrykket mellom parentesene. >
+
+   < Metode som viser tallene i arrayen i et tekstområde, som mottas
+     som parameter. I tillegg skal det, i tekstområdet, skrives ut
+     opplysninger om hvilket tall som er minst, hvilket som er størst,
+     hva som er gjennomsnittsverdien, og hvilken heltallsverdi som
+     er nærmest gjennomnittet, jfr bildet over. Gjennomsnittverdien
+     skal skrives ut med en desimal. Legg inn mellomrom mellom tallene
+     og skriv ut et passende antall tall per linje. >
+}
