@@ -29,25 +29,39 @@ public class UnikeTall
    }
    /*Konstruktør som mottar arrayens lengde som parameter og 
    oppretter arrayen.  */
-       
-    for( int i = arraylength, i++  )
+    public boolean finnes( int tall )
     {
-		boolean()
-		{
-			
-		}
-		
-    }
+          for( int i = 0; i <= arraylength; i++ )
+   		 {
+		     if (tall == array[i])
+		     {
+				 return false;				 
+			 }
+    	 } 
+    	 return true
+    } 
+    
    /*Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
      Tallet det letes etter skal mottas som parameter.
      Metoden skal returnere true hvis tallet finnes i arrayen.
      Hvis ikke skal metoden returnere false. */
-
+    
+    public void tilfeldig()
+    {
+		for ( int i = 0; i <= arraylength; i++)
+		{
+			array[i]= Math.random()* (lowerconstant + upperconstant);
+		}
+	}
    /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
      begge grenser inkludert. Metoden skal gjøre dette på en måte
      som sikrer at alle tallene er forskjellige. Metoden skal ikke ha
      parametre og heller ikke returnere noen verdi.  */
-
+	
+	 
+	 
+	 
+	 
    /*Metode som finner og returnerer det minste tallet i arrayen. */
 
    /* Metode som finner og returnerer det største tallet i arrayen. >
