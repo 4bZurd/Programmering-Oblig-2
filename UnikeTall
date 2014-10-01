@@ -2,7 +2,7 @@ package com.oblig2;
 
 import javax.swing.*;
 
-public class Oppgave2
+public class UnikeTall
 {
    int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
    int lowerconstant = 100; // Deklarasjon av nedre grense
