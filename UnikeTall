@@ -7,7 +7,6 @@ Oppgave 2*/
 import javax.swing.*;
 import java.util.*;
 
-
 public class UnikeTall
 {
     int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
@@ -30,14 +29,18 @@ public class UnikeTall
 
     public boolean finnes( int tall )
     {
-        for (int i = 0; i <= array.length; i++)
+		//boolean sjekke= false;
+        for (int i = 0; i < array.length; i++)
         {
             if (tall == array[i])
             {
-                return false;
+                return true;
             }
-        }
-        return true;
+           /* else
+        	{
+        		sjekke = false;
+		    }*/
+	     } return false;
     }
     /*Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
     Tallet det letes etter skal mottas som parameter.
@@ -46,11 +49,21 @@ public class UnikeTall
 
     public void tilfeldig()
     {
+		int random = 0;
         for (int i = 0; i < array.length; i++)
         {
-            array[i] = generator.nextInt((upperconstant - lowerconstant) +1) + lowerconstant;
-            System.out.println(array[i]);
-        }
+            random = generator.nextInt((upperconstant - lowerconstant) +1) + lowerconstant;
+
+			if(finnes(random)== true)
+			{
+				i--;
+			}
+			else
+			{
+				array[i]= random;
+			}
+
+		}
     }
     /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
     begge grenser inkludert. Metoden skal gjøre dette på en måte som sikrer
@@ -65,8 +78,8 @@ public class UnikeTall
             if(lavesteTall > array[i])
             {
                 lavesteTall = array[i];
-                System.out.println(lavesteTall);
-            }
+
+            } System.out.println(lavesteTall);
         } return lavesteTall;
     }
    /*Metode som finner og returnerer det minste tallet i arrayen. */
@@ -92,26 +105,25 @@ public class UnikeTall
         {
             snitt = snitt + array[i];
         }
-        snitt= (double)snitt/array.length;
-        return snitt;
+       snitt= (double)snitt/array.length;
+       return snitt;
+
     }
     /* Metode som beregner og returnerer den gjennomstnittlige verdien
     (double-verdi) av tallene i arrayen.  */
 
-    public int nærmsnitt()
-    {
-        int nærmsnitt;
-         //lavesteTall = Math.abs(array[0] - nærmsnitt);
+	public int nærmsnitt()
+	     {
+	      	    double value = 0;
+		  	    for (int i = 0; i < array.length; i++)
+		  		{
+		  			int tall = array[i];
+		  			value += tall;
+		  		}
+	      	double average = value / array.length;
+			return (int) average;
+	     }
 
-        for( int i = 0; i < array.length; i++)
-        {
-            if( Math.abs( array[i] - nærmsnitt) < lavesteTall)
-            {
-                lavesteTall = Math.abs(array[i] - nærmsnitt);
-            }
-        }
-        return nærmsnitt;
-    }
     /*Metode som returnerer den heltallsverdien som ligger nærmest
     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer
     absoluttverdien til uttrykket mellom parentesene. */
@@ -124,18 +136,18 @@ public class UnikeTall
 			tekstområde.append(array[i] + "  ");
 
 			if ( (i + 1) % 8 == 0 )
-			{
+				{
 				tekstområde.append("\n");
-			}
+				}
 
 			if ( i != array.length -1)
-			{
+				{
 				tekstområde.append(" ");
-			}
+				}
 			else
-			{
+				{
 				tekstområde.append("");
-			}
+				}
 
 		}
 		utskrift =  "\n" +
