@@ -1,3 +1,5 @@
+package com.oblig2;
+
 /*
 Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
 Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
@@ -9,62 +11,60 @@ import javax.swing.*;
 import java.util.*;
 
 
-public class UnikeTall
+public class Uniketall
 {
-   int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
-   int lowerconstant = 100; // Deklarasjon av nedre grense
-   int upperconstant = 1000; // Deklarasjon av øvre grense
-   JTextArea output = new JTextArea("");
-   Random generator = new Random();
-   private int arraylength = 0;
-   /* Deklarasjon av array for lagring av tilfeldige heltall
-     og andre nødvendige variabler og/eller konstanter.  */
-   double average;
-
-
-   public UnikeTall(int input )
-   {
-	 arraylength = input;
-
-     array = new int[arraylength];
-   }
-   /*Konstruktør som mottar arrayens lengde som parameter og
-   oppretter arrayen.  */
+    int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
+    int lowerconstant = 100; // Deklarasjon av nedre grense
+    int upperconstant = 1000; // Deklarasjon av øvre grense
+    JTextArea output = new JTextArea("");
+    Random generator = new Random();
+    private int arraylength = 0;
+    double average;
+    /* Deklarasjon av array for lagring av tilfeldige heltall og andre 
+    nødvendige variabler og/eller konstanter.  */
+   
+    public UnikeTall(int input)
+    {
+        array = new int[arraylength];
+    }
+    /*Konstruktør som mottar arrayens lengde som parameter og
+    oppretter arrayen.  */
+    
     public boolean finnes( int tall )
     {
-          for( int i = 0; i <= arraylength; i++ )
-   		 {
-		     if (tall == array[i])
-		     {
-				 return false;
-			 }
-    	 }
-    	 return true;
+        for (int i = 0; i <= array.length; i++)
+        {
+            if (tall == array[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
-
-   /*Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
-     Tallet det letes etter skal mottas som parameter.
-     Metoden skal returnere true hvis tallet finnes i arrayen.
-     Hvis ikke skal metoden returnere false. */
+    /*Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
+    Tallet det letes etter skal mottas som parameter.
+    Metoden skal returnere true hvis tallet finnes i arrayen.
+    Hvis ikke skal metoden returnere false. */
 
     public void tilfeldig()
     {
-		for ( int i = 0; i <= arraylength; i++)
-		{
-			array[i]= Math.random()* (lowerconstant + upperconstant);
-		}
-	}
-   /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
-     begge grenser inkludert. Metoden skal gjøre dette på en måte
-     som sikrer at alle tallene er forskjellige. Metoden skal ikke ha
-     parametre og heller ikke returnere noen verdi.  */
+        for (int i = 0; i <= array.length; i++)
+        {
+            array[i] = 100 + (int)(Math.random()*1000);
+        }
+    }
+    /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000, 
+    begge grenser inkludert. Metoden skal gjøre dette på en måte som sikrer 
+    at alle tallene er forskjellige. Metoden skal ikke ha parametre og heller 
+    ikke returnere noen verdi.  */
 
     public void lavesteTall()
     {
         int smallest = Integer.MAX_VALUE;
         for(int i = 0; i < array.length; i++)
         {
-            if(smallest > array[i]) {
+            if(smallest > array[i])
+            {
                 smallest = array[i];
             }
         }
@@ -76,7 +76,8 @@ public class UnikeTall
         int highest = Integer.MIN_VALUE;
         for(int i = 0; i > array.length; i++)
         {
-            if(highest < array[i]) {
+            if(highest < array[i])
+            {
                 highest = array[i];
             }
         }
@@ -86,35 +87,33 @@ public class UnikeTall
     public double snitt(int[] array)
     {
         int sum = 0;
-
-
         for(int i = 0; i < array.length; i++)
         {
             sum = sum + array[i];
         }
-
         average = (double)sum/array.length;
         return average;
     }
-   /* Metode som beregner og returnerer den gjennomstnittlige verdien
-     (double-verdi) av tallene i arrayen.  */
+    /* Metode som beregner og returnerer den gjennomstnittlige verdien 
+    (double-verdi) av tallene i arrayen.  */
 
-     public double nærmsnitt()
-     {
-		 double snitt = average;
-		 double minst = Math.abs(array[0] - snitt);
+    public double nærmsnitt()
+    {
+        double snitt = average;
+        double minst = Math.abs(array[0] - snitt);
 
-		 for( int i = 1; i < array.length; i++)
-		 	{
-				if( Math.abs( array[i] - snitt) < minst)
-				{
-					minst = Math.abs(array[i] - snitt);
-				}
-			}
-	}
-	 /*Metode som returnerer den heltallsverdien som ligger nærmest
-	     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som
-     returnerer absoluttverdien til uttrykket mellom parentesene. */
+        for( int i = 1; i < array.length; i++)
+        {
+            if( Math.abs( array[i] - snitt) < minst)
+            {
+                minst = Math.abs(array[i] - snitt);
+            }
+        }
+        return minst;
+    }
+    /*Metode som returnerer den heltallsverdien som ligger nærmest 
+    gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer 
+    absoluttverdien til uttrykket mellom parentesene. */
 
 
 
