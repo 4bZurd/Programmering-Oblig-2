@@ -79,7 +79,7 @@ public class UnikeTall
             {
                 lavesteTall = array[i];
 
-            } System.out.println(lavesteTall);
+            }
         } return lavesteTall;
     }
    /*Metode som finner og returnerer det minste tallet i arrayen. */
@@ -92,7 +92,7 @@ public class UnikeTall
             if(storsteTall < array[i])
             {
                 storsteTall = array[i];
-                System.out.println(storsteTall);
+
             }
         }return storsteTall;
     }
