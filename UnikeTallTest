@@ -1,7 +1,18 @@
+import javax.swing.*;
+
 public class UnikeTallTest
 {
 	public static void main(String [] args)
-	{	
-		String input: JOptionPane.showInputDialog(" Skriv inn hvor mange tall du vil trekke?");
+	{
+
+		String input2 = JOptionPane.showInputDialog(" Skriv inn hvor mange tall du vil trekke?");
+		int antall = Integer.parseInt( input2 );
+
+		UnikeTall uniketall = new UnikeTall(output);
+		JTextArea utskrift = new JTextArea(  );
+
+
+
+
 	}
 }
