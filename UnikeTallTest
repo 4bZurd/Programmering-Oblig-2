@@ -8,9 +8,9 @@ public class UnikeTallTest
 		String input2 = JOptionPane.showInputDialog(" Skriv inn hvor mange tall du vil trekke?");
 		int antall = Integer.parseInt( input2 );
 
-		UnikeTall uniketall = new UnikeTall(output);
-		JTextArea utskrift = new JTextArea(  );
-
+		UnikeTall uniketall = new UnikeTall(antall);
+		JTextArea utskrift = new JTextArea();
+		uniketall.output(utskrift);
 
 
 
