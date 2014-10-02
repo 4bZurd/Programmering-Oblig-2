@@ -115,6 +115,27 @@ public class Uniketall
     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer 
     absoluttverdien til uttrykket mellom parentesene. */
 
+ /*for( int[] x : array)
+	    {
+			int teller = 0;
+			for (int i = =; i < sfdfdggd(); i++)
+			{
+				if( dfgdf == dfghdgh
+				{
+					teller++;
+				}
+				
+				if(y%10==0)
+				{
+					output.append("\n");
+				}
+		output.append( x + "dfhdh" "\t");
+		y++;
+	}
+	
+	JOptionPane.showMessageDialog(null, output,"", JOptionPane.PLAIN_MESSAGE);
+	}
+	*/
 
 
 
