@@ -57,15 +57,44 @@ public class UnikeTall
      begge grenser inkludert. Metoden skal gjøre dette på en måte
      som sikrer at alle tallene er forskjellige. Metoden skal ikke ha
      parametre og heller ikke returnere noen verdi.  */
-	
-	 
-	 
-	 
-	 
+     
+    public void lavesteTall()
+    {
+        int smallest = Integer.MAX_VALUE;
+        for(int i = 0; i < array.length; i++)
+        {
+            if(smallest > array[i]) {
+                smallest = array[i];
+            }
+        }
+    }
    /*Metode som finner og returnerer det minste tallet i arrayen. */
+    
+    public void storsteTall()
+    {
+        int highest = Integer.MIN_VALUE;
+        for(int i = 0; i > array.length; i++)
+        {
+            if(highest < array[i]) {
+                highest = array[i];
+            }
+        }
+    }
+   /* Metode som finner og returnerer det største tallet i arrayen. */
 
-   /* Metode som finner og returnerer det største tallet i arrayen. >
+    public double snitt(int[] array)
+    {  
+        int sum = 0;
+        double average;
 
+        for(int i = 0; i < array.length; i++)
+        {
+            sum = sum + array[i];
+        }
+    
+        average = (double)sum/array.length;
+        return average;    
+    }
    /* Metode som beregner og returnerer den gjennomstnittlige verdien
      (double-verdi) av tallene i arrayen.  */
 
