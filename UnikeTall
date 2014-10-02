@@ -114,15 +114,19 @@ public class UnikeTall
 
 	public int nærmsnitt()
 	     {
-	      	    double value = 0;
-		  	    for (int i = 0; i < array.length; i++)
-		  		{
-		  			int tall = array[i];
-		  			value += tall;
-		  		}
-	      	double average = value / array.length;
-			return (int) average;
-	     }
+	    	 double average = snitt(array);
+	    	 int distance = Math.abs(array[0] - (int) average);
+	    	 int index = 0;
+	    	 for(int i = 1; i < array.length; i++){
+	    	     int iDistance = Math.abs(array[i] - (int) average);
+	    	     if(iDistance < distance){
+	    	         index = i;
+	    	         distance = iDistance;
+	    	     }
+	    	 }
+	    	 int avgClosest = array[index];
+	    	 return avgClosest;
+	}
 
     /*Metode som returnerer den heltallsverdien som ligger nærmest
     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer
