@@ -63,12 +63,12 @@ public class UnikeTall
 
     public void lavesteTall()
     {
-        int smallest = Integer.MAX_VALUE;
+        int lavesteTall = Integer.MAX_VALUE;
         for(int i = 0; i < array.length; i++)
         {
-            if(smallest > array[i])
+            if(lavesteTall > array[i])
             {
-                smallest = array[i];
+                lavesteTall = array[i];
             }
         }
     }
@@ -76,12 +76,12 @@ public class UnikeTall
 
     public void storsteTall()
     {
-        int highest = Integer.MIN_VALUE;
+        int storsteTall= Integer.MIN_VALUE;
         for(int i = 0; i > array.length; i++)
         {
-            if(highest < array[i])
+            if(storsteTall < array[i])
             {
-                highest = array[i];
+                storsteTall = array[i];
             }
         }
     }
@@ -89,12 +89,12 @@ public class UnikeTall
 
     public double snitt(int[] array)
     {
-        int sum = 0;
+        int snitt = 0;
         for(int i = 0; i < array.length; i++)
         {
-            sum = sum + array[i];
+            snitt = snitt + array[i];
         }
-        average = (double)sum/array.length;
+        average = (double)snitt/array.length;
         return average;
     }
     /* Metode som beregner og returnerer den gjennomstnittlige verdien
@@ -103,16 +103,16 @@ public class UnikeTall
     public double nærmsnitt()
     {
         double snitt = average;
-        double minst = Math.abs(array[0] - snitt);
+        double lavesteTall = Math.abs(array[0] - snitt);
 
         for( int i = 1; i < array.length; i++)
         {
-            if( Math.abs( array[i] - snitt) < minst)
+            if( Math.abs( array[i] - snitt) < lavesteTall)
             {
-                minst = Math.abs(array[i] - snitt);
+                lavesteTall = Math.abs(array[i] - snitt);
             }
         }
-        return minst;
+        return lavesteTall;
     }
     /*Metode som returnerer den heltallsverdien som ligger nærmest
     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer
