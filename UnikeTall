@@ -1,35 +1,38 @@
-package com.oblig2;
-
 /*
 Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
 Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-Oppgave 2
-*/
+Oppgave 2*/
 
 import javax.swing.*;
 import java.util.*;
 
 
-public class Uniketall
+public class UnikeTall
 {
     int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
     int lowerconstant = 100; // Deklarasjon av nedre grense
     int upperconstant = 1000; // Deklarasjon av øvre grense
     JTextArea output = new JTextArea("");
     Random generator = new Random();
-    private int arraylength = 0;
     double average;
-    /* Deklarasjon av array for lagring av tilfeldige heltall og andre 
+    int lavesteTall;
+    int storsteTall;
+    double  snitt;
+    double nærmsnitt;
+    String utskrift = "";
+
+
+    /* Deklarasjon av array for lagring av tilfeldige heltall og andre
     nødvendige variabler og/eller konstanter.  */
-   
+
     public UnikeTall(int input)
     {
-        array = new int[arraylength];
+        array = new int[input];
     }
     /*Konstruktør som mottar arrayens lengde som parameter og
     oppretter arrayen.  */
-    
+
     public boolean finnes( int tall )
     {
         for (int i = 0; i <= array.length; i++)
@@ -48,14 +51,14 @@ public class Uniketall
 
     public void tilfeldig()
     {
-        for (int i = 0; i <= array.length; i++)
+        for (int i = 0; i < array.length; i++)
         {
-            array[i] = 100 + (int)(Math.random()*1000);
+            array[i] = generator.nextInt((upperconstant - lowerconstant) +1) + lowerconstant;
         }
     }
-    /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000, 
-    begge grenser inkludert. Metoden skal gjøre dette på en måte som sikrer 
-    at alle tallene er forskjellige. Metoden skal ikke ha parametre og heller 
+    /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
+    begge grenser inkludert. Metoden skal gjøre dette på en måte som sikrer
+    at alle tallene er forskjellige. Metoden skal ikke ha parametre og heller
     ikke returnere noen verdi.  */
 
     public void lavesteTall()
@@ -94,7 +97,7 @@ public class Uniketall
         average = (double)sum/array.length;
         return average;
     }
-    /* Metode som beregner og returnerer den gjennomstnittlige verdien 
+    /* Metode som beregner og returnerer den gjennomstnittlige verdien
     (double-verdi) av tallene i arrayen.  */
 
     public double nærmsnitt()
@@ -111,40 +114,41 @@ public class Uniketall
         }
         return minst;
     }
-    /*Metode som returnerer den heltallsverdien som ligger nærmest 
-    gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer 
+    /*Metode som returnerer den heltallsverdien som ligger nærmest
+    gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer
     absoluttverdien til uttrykket mellom parentesene. */
 
- /*for( int[] x : array)
-	    {
-			int teller = 0;
-			for (int i = =; i < sfdfdggd(); i++)
+	public void output(JTextArea tekstområde)
+	{
+		tilfeldig();
+		for( int i = 0; i < array.length; i++)
+		{
+			tekstområde.append(array[i] + "  ");
+
+			if ( (i + 1) % 8 == 0 )
 			{
-				if( dfgdf == dfghdgh
-				{
-					teller++;
-				}
-				
-				if(y%10==0)
-				{
-					output.append("\n");
-				}
-		output.append( x + "dfhdh" "\t");
-		y++;
+				tekstområde.append("\n");
+			}
+
+			if ( i != array.length -1)
+			{
+				tekstområde.append(" ");
+			}
+			else
+			{
+				tekstområde.append("");
+			}
+
+		}
+		utskrift =  "\n" +
+		"Største tall: " + storsteTall + "\n" +
+		"Minste tall: " + lavesteTall + "\n" +
+		"Gjennomsnitt: " + snitt + "\n" +
+		"Nærmest gjennomsnitt: " + nærmsnitt + "\n";
+		tekstområde.append(utskrift);
+
+		JOptionPane.showMessageDialog(null, tekstområde, "Unike tall", JOptionPane.PLAIN_MESSAGE);
 	}
-	
-	JOptionPane.showMessageDialog(null, output,"", JOptionPane.PLAIN_MESSAGE);
-	}
-	*/
-
-
-
-
-
-
-
-
-
    /*Metode som viser tallene i arrayen i et tekstområde, som mottas
      som parameter. I tillegg skal det, i tekstområdet, skrives ut
      opplysninger om hvilket tall som er minst, hvilket som er størst,
