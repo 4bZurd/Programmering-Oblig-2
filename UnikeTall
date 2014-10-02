@@ -15,11 +15,6 @@ public class UnikeTall
     int upperconstant = 1000; // Deklarasjon av øvre grense
     JTextArea output = new JTextArea("");
     Random generator = new Random();
-    double average;
-    int lavesteTall;
-    int storsteTall;
-    double  snitt;
-    double nærmsnitt;
     String utskrift = "";
 
 
@@ -54,6 +49,7 @@ public class UnikeTall
         for (int i = 0; i < array.length; i++)
         {
             array[i] = generator.nextInt((upperconstant - lowerconstant) +1) + lowerconstant;
+            System.out.println(array[i]);
         }
     }
     /*Metode som skal fylle arrayen med tilfeldige tall mellom 100 og 1000,
@@ -61,7 +57,7 @@ public class UnikeTall
     at alle tallene er forskjellige. Metoden skal ikke ha parametre og heller
     ikke returnere noen verdi.  */
 
-    public void lavesteTall()
+    public int lavesteTall()
     {
         int lavesteTall = Integer.MAX_VALUE;
         for(int i = 0; i < array.length; i++)
@@ -69,50 +65,52 @@ public class UnikeTall
             if(lavesteTall > array[i])
             {
                 lavesteTall = array[i];
+                System.out.println(lavesteTall);
             }
-        }
+        } return lavesteTall;
     }
    /*Metode som finner og returnerer det minste tallet i arrayen. */
 
-    public void storsteTall()
+    public int storsteTall()
     {
         int storsteTall= Integer.MIN_VALUE;
-        for(int i = 0; i > array.length; i++)
+        for(int i = 0; i < array.length; i++)
         {
             if(storsteTall < array[i])
             {
                 storsteTall = array[i];
+                System.out.println(storsteTall);
             }
-        }
+        }return storsteTall;
     }
    /* Metode som finner og returnerer det største tallet i arrayen. */
 
     public double snitt(int[] array)
     {
-        int snitt = 0;
+        double snitt = 0;
         for(int i = 0; i < array.length; i++)
         {
             snitt = snitt + array[i];
         }
-        average = (double)snitt/array.length;
-        return average;
+        snitt= (double)snitt/array.length;
+        return snitt;
     }
     /* Metode som beregner og returnerer den gjennomstnittlige verdien
     (double-verdi) av tallene i arrayen.  */
 
-    public double nærmsnitt()
+    public int nærmsnitt()
     {
-        double snitt = average;
-        double lavesteTall = Math.abs(array[0] - snitt);
+        int nærmsnitt;
+         //lavesteTall = Math.abs(array[0] - nærmsnitt);
 
-        for( int i = 1; i < array.length; i++)
+        for( int i = 0; i < array.length; i++)
         {
-            if( Math.abs( array[i] - snitt) < lavesteTall)
+            if( Math.abs( array[i] - nærmsnitt) < lavesteTall)
             {
-                lavesteTall = Math.abs(array[i] - snitt);
+                lavesteTall = Math.abs(array[i] - nærmsnitt);
             }
         }
-        return lavesteTall;
+        return nærmsnitt;
     }
     /*Metode som returnerer den heltallsverdien som ligger nærmest
     gjennomsnittverdien. Hint! Her kan du bruke Math.abs(...) som returnerer
@@ -141,10 +139,10 @@ public class UnikeTall
 
 		}
 		utskrift =  "\n" +
-		"Største tall: " + storsteTall + "\n" +
-		"Minste tall: " + lavesteTall + "\n" +
-		"Gjennomsnitt: " + snitt + "\n" +
-		"Nærmest gjennomsnitt: " + nærmsnitt + "\n";
+		"Største tall: " + storsteTall() + "\n" +
+		"Minste tall: " + lavesteTall() + "\n" +
+		"Gjennomsnitt: " + snitt(array) + "\n" +
+		"Nærmest gjennomsnitt: " + nærmsnitt() + "\n";
 		tekstområde.append(utskrift);
 
 		JOptionPane.showMessageDialog(null, tekstområde, "Unike tall", JOptionPane.PLAIN_MESSAGE);
