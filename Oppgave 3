@@ -1,43 +1,41 @@
+package com.oblig2;
+
 /*
-Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
-Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
+ Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
+ Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-Oppgave 3
-*/
-
+ Oppgave 3
+ */
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+/* importerer nødvendige biblioteker */
 
-public class Oppgave3
-{
-     public static void main(String[] args)
-     {
-		int tel = 0;
+public class Oppgave3 {
+
+    public static void main(String[] args) {
+        int tel = 0; // deklarerer variabel tel for å senere kunne definere linjeskift
         char[] alfabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-        				'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Æ', 'Ø', 'Å'};
-		//deklarerer array
-		String input = JOptionPane.showInputDialog(" Skriv inn en litt lang setning."); // Ber brukeren skrive en setning
-        String inputUpper = input.toUpperCase(); // konverterer hele setningen til store bokstaver
-        JTextArea output = new JTextArea("Antall bokstaver i teksten \n" + input + ":\n"); // definerer JTextArea for utskrift
+            'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'Æ', 'Ø', 'Å'}; // deklarerer array
 
-    	for (char alfa : alfabet)
-    	{
-			int teller = 0;
-			for ( int i = 0; i < inputUpper.length(); i++ )
-			{
-				if (alfa == inputUpper.charAt(i))
-				{
-					teller++;
-				}
+        String input = JOptionPane.showInputDialog(" Skriv inn en litt lang setning."); //Ber om en string som skal benyttes for å lese inn bokstavene
+        String inputUpper = input.toUpperCase(); // konverterer alle bokstaver i input strengen til store bokstaver
+        JTextArea output = new JTextArea("Antall bokstaver i teksten \n" + input + ":\n"); // definerer JTextArea for å strukturere output.
 
-			}
-			if(tel%5==0){
-				output.append("\n"); // legger til linjeskift for hver femte linje
-				}
-			output.append(alfa + ": " + teller + ", \t");
-			tel++;
-    	}
-    	JOptionPane.showMessageDialog(null, output, "Antall bokstaver", JOptionPane.PLAIN_MESSAGE);
-	}
+        for (char alfa : alfabet) // starter løkke for å telle bokstaver
+        {
+            int teller = 0; //teller for å holde styr på hvor mange ganger løkka blir kjørt
+            for (int i = 0; i < inputUpper.length(); i++) // ny løkke for å sjekke at alle indexer blir gått gjennom
+            {
+                if (alfa == inputUpper.charAt(i)) {
+                    teller++; //legger til +1 på telleren
+                }
+            }
+            if (tel % 5 == 0) { // dersom variabelen tel er delbar på 5 uten å få rest, legges det til linjeskift
+                output.append("\n");
+            }
+            output.append(alfa + ": " + teller + ", \t"); // for hver bokstav og telling av bokstav legger vi til teksten i output.
+            tel++; // +1 på variabel tel for å kunne definere når linjeskiftene skal bli riktige
+        }
+        JOptionPane.showMessageDialog(null, output, "Antall bokstaver", JOptionPane.PLAIN_MESSAGE); // utskrift av setningen og hvor mange ganger hvert tall forekommer i setningen.
+    }
 }
-
