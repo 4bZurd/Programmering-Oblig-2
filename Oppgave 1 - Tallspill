@@ -1,74 +1,62 @@
-/*
-Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
-Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
-
-Oppgave 1 - Tallspill
-*/
+package com.oblig2;
 
 import javax.swing.*;
 import java.util.*;
 
-public class Tallspill
-{
-	private static final int MAX = 199;
-	private static final int MIN = 1;
+public class Tallspill {
 
-	public int nyttTall()
-	{
-		return (int) (Math.random()* (MIN + MAX));
-		//returnerer et slumptall mellom 0 og 200. >
-	}
+    private static final int MAX = 199;
+    private static final int MIN = 1;
 
-	public void visMelding(String melding)
-	{
-		JOptionPane.showMessageDialog(null,melding,null,JOptionPane.PLAIN_MESSAGE);
-		//Viser parameterens innhold i en meldingsboks. >
-	}
+    public int nyttTall() {
+        return (int) (Math.random() * (MIN + MAX));
+        //returnerer et slumptall mellom 0 og 200. >
+    }
 
-	private void forLite( int tall )
-	{
-		visMelding(tall + " er for lite. Du må prøve igjen. ");
-		// Viser melding om at parameterens verdi er for
-		// lite tall og ber spilleren prøve igjen. >
-	}
+    public void visMelding(String melding) {
+        JOptionPane.showMessageDialog(null, melding, null, JOptionPane.PLAIN_MESSAGE);
+        //Viser parameterens innhold i en meldingsboks. >
+    }
 
-	private void forStort( int tall )
-	{
-		visMelding(tall + " er for stort. Du må prøve igjen");
-		// Viser melding om at parameterens verdi er for
-		// stort tall og ber spilleren prøve igjen. >
-	}
+    private void forLite(int tall) {
+        visMelding(tall + " er for lite. Du må prøve igjen.");
+    // Viser melding om at parameterens verdi er for
+        // lite tall og ber spilleren prøve igjen. >
+    }
 
-	public void avsluttRunde( int antall, int gjetning )
-	{
-		visMelding( gjetning + "er riktig! \n Du gjettet riktig \n på " + antall + " forsøk.");
-		/* Viser melding om at det ble gjettet riktig og antall gjetninger som ble brukt.
-		Parametrene gir opplysninger om dette. >*/
-	}
+    private void forStort(int tall) {
+        visMelding(tall + " er for stort. Du må prøve igjen");
+    // Viser melding om at parameterens verdi er for
+        // stort tall og ber spilleren prøve igjen. >
+    }
 
-	public void kjørSpill()
-	{
-	int tall = nyttTall();
-	int antallGjetninger= 0;
-	int gjetning;
+    public void avsluttRunde(int antall, int gjetning) {
+        visMelding(gjetning + " er riktig! \n Du gjettet riktig \n på " + antall + " forsøk.");
+        /* Viser melding om at det ble gjettet riktig og antall gjetninger som ble 
+         brukt. Parametrene gir opplysninger om dette. >*/
+    }
 
-	do
-	{
-	gjetning = Integer.parseInt( JOptionPane.showInputDialog(null," Jeg tenker på et tall mellom " + MIN + " og " + MAX
-                                                                                     + " \n Prøv å gjette på tallet !" ));
-	antallGjetninger +=1;
+    public void kjorSpill() {
+        int tall = nyttTall();
+        int antallGjetninger = 0;
+        int gjetning;
 
-	if ( gjetning < tall )
-				forLite( gjetning );
+        do {
+            gjetning = Integer.parseInt(JOptionPane.showInputDialog(null, " Jeg tenker på et tall mellom " + MIN + " og " + MAX
+                    + " \n Prøv å gjette på tallet !"));
+            antallGjetninger += 1;
 
-	else if ( gjetning > tall )
-				forStort( gjetning );
+            if (gjetning < tall) {
+                forLite(gjetning);
+            } else if (gjetning > tall) {
+                forStort(gjetning);
+            }
 
-	} while ( tall != gjetning );
+        } while (tall != gjetning);
 
-		avsluttRunde(antallGjetninger, gjetning);
-	}
+        avsluttRunde(antallGjetninger, gjetning);
+    }
 }
-	/* Kjører en spillrunde ved å trekke et tall, nullstille tellevariabel, innhente gjentatte
-	gjetninger fra bruker inntil det gjettes riktig. Når det skjer, avsluttes runden med passe
-	meldinger til spilleren. >*/
+/* Kjører en spillrunde ved å trekke et tall, nullstille tellevariabel, 
+ innhente gjentatte gjetninger fra bruker inntil det gjettes riktig.
+ Når det skjer, avsluttes runden med passe meldinger til spilleren. */
