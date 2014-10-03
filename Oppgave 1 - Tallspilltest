@@ -1,41 +1,29 @@
-/*
-Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
-Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
-
-Oppgave 1 - Tallspilltest
-*/
+package com.oblig2;
 
 import javax.swing.*;
 import java.util.*;
 
+public class Tallspilltest {
 
-public class Tallspilltest
-{
+    public static final String[] JA_NEI_ALTERNATIV = {" Ja ", " Nei "};
 
-	public static final String[]JA_NEI_ALTERNATIV = {" Ja "," Nei "};
+    public static void main(String[] args) {
+        Tallspill tallspill = new Tallspill();
+        int svar;
 
-	public static void main(String[] args)
-	{
-		Tallspill tallspill = new Tallspill();
-		int svar;
+        do {
+            tallspill.kjorSpill();
+            String[] alternativ = {" Ja ", " Nei "};
+            svar = JOptionPane.showOptionDialog(null,
+                    " Vil du prøve en runde til ? ",
+                    " Gratulerer! ", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null, alternativ,
+                    alternativ[0]);
+        } while (svar == JOptionPane.YES_OPTION);
 
-		do
-		{
-			tallspill.kjørSpill();
-			String[] alternativ = { " Ja ", " Nei "};
-			svar = JOptionPane.showOptionDialog( null,
-			" Vil du prøve en runde til ? ",
-			" Gratulerer! ", JOptionPane.YES_NO_OPTION,
-			JOptionPane.QUESTION_MESSAGE, null, alternativ,
-			alternativ[ 0 ] );
-
-		}
-		while ( svar == JOptionPane.YES_OPTION );
-
-		JOptionPane.showMessageDialog( null, " Takk for spillet! " );
-
-	}
-	/* Driverklasse som oppretter et Tallspill-objekt og kjører spillet gjentatte runder inntil
-	brukeren velger å avslutte. */
+        JOptionPane.showMessageDialog(null, " Takk for spillet! ");
+    }
+    /* Driverklasse som oppretter et Tallspill-objekt og kjører spillet gjentatte 
+     runder inntil brukeren velger å avslutte. >*/
 
 }
