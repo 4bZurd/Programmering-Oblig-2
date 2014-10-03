@@ -11,11 +11,11 @@ import java.util.*;
 public class UnikeTall
 {
 	int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
-    int lowerconstant = 100; // Deklarasjon av nedre grense
-    int upperconstant = 1000; // Deklarasjon av øvre grense
+    private static final int LOWERCONSTANT = 100; // Deklarasjon av nedre grense
+    private static final int UPPERCONSTANT = 1000; // Deklarasjon av øvre grense
     JTextArea output = new JTextArea("");
     Random generator = new Random();
-    String utskrift = "";
+    private String utskrift = "";
 
     /* Deklarasjon av array for lagring av tilfeldige heltall og andre
     nødvendige variabler og/eller konstanter.  */
@@ -29,17 +29,13 @@ public class UnikeTall
 
     public boolean finnes( int tall )
     {
-		//boolean sjekke= false;
+
         for (int i = 0; i < array.length; i++)
         {
             if (tall == array[i])
-            {
-                return true;
-            }
-           /* else
-        	{
-        		sjekke = false;
-		    }*/
+            	{
+                	return true;
+            	}
 	     } return false;
     }
     /*Metode som skal undersøke om et gitt tall finnes i arrayen fra før.
@@ -52,16 +48,16 @@ public class UnikeTall
 		int random = 0;
         for (int i = 0; i < array.length; i++)
         {
-            random = generator.nextInt((upperconstant - lowerconstant) +1) + lowerconstant;
+            random = generator.nextInt((UPPERCONSTANT - LOWERCONSTANT) +1) + LOWERCONSTANT;
 
 			if(finnes(random)== true)
-			{
-				i--;
-			}
+				{
+					i--;
+				}
 			else
-			{
-				array[i]= random;
-			}
+				{
+					array[i]= random;
+				}
 
 		}
     }
@@ -76,10 +72,10 @@ public class UnikeTall
         for(int i = 0; i < array.length; i++)
         {
             if(lavesteTall > array[i])
-            {
-                lavesteTall = array[i];
+            	{
+                	lavesteTall = array[i];
 
-            }
+            	}
         } return lavesteTall;
     }
    /*Metode som finner og returnerer det minste tallet i arrayen. */
@@ -98,7 +94,7 @@ public class UnikeTall
     }
    /* Metode som finner og returnerer det største tallet i arrayen. */
 
-    public double snitt(int[] array)
+    public double snitt()
     {
         double snitt = 0;
         for(int i = 0; i < array.length; i++)
@@ -107,14 +103,13 @@ public class UnikeTall
         }
        snitt= (double)snitt/array.length;
        return snitt;
-
     }
     /* Metode som beregner og returnerer den gjennomstnittlige verdien
     (double-verdi) av tallene i arrayen.  */
 
 	public int nærmsnitt()
 	     {
-	    	 double average = snitt(array);
+	    	 double average = snitt();
 	    	 int distance = Math.abs(array[0] - (int) average);
 	    	 int index = 0;
 	    	 for(int i = 1; i < array.length; i++){
@@ -157,7 +152,7 @@ public class UnikeTall
 		utskrift =  "\n" +
 		"Største tall: " + storsteTall() + "\n" +
 		"Minste tall: " + lavesteTall() + "\n" +
-		"Gjennomsnitt: " + snitt(array) + "\n" +
+		"Gjennomsnitt: " + snitt() + "\n" +
 		"Nærmest gjennomsnitt: " + nærmsnitt() + "\n";
 		tekstområde.append(utskrift);
 
