@@ -1,25 +1,23 @@
 /*
-Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
-Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
+ Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
+ Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-Oppgave 2 - UnikeTallTest
-*/
+ Oppgave 2 - UnikeTallTest
+ */
 import javax.swing.*;
 
-public class UnikeTallTest
-{
-	public static void main(String [] args)
-	{
-		String input2 = JOptionPane.showInputDialog("Hvor mange tall mellom 50 og 100 vil du trekke?");
-		int ovregrense = 100;
-		int nedregrense = 50;
-		int antall = Integer.parseInt( input2 );
+public class UnikeTallTest {
+
+    public static void main(String[] args) {
+        String input2 = JOptionPane.showInputDialog("Hvor mange tall mellom 50 og 100 vil du trekke?");
+        int ovregrense = 100;
+        int nedregrense = 50;
+        int antall = Integer.parseInt(input2);
 
 		// < løkke som setter ovre og nedre grense for hvor mange tall man vil trekke>
-
-		UnikeTall uniketall = new UnikeTall(antall);
-		JTextArea utskrift = new JTextArea();
-		uniketall.output(utskrift);
-	}
+        UnikeTall uniketall = new UnikeTall(antall);
+        JTextArea utskrift = new JTextArea();
+        uniketall.output(utskrift);
+    }
 }
 /* Driverklasse som kjører UnikeTall */
