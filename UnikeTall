@@ -2,20 +2,20 @@
 Gruppemedlemmer: Stian Hvidsten (236619), Aleksander Foss Vold (236608) og Thomas Löfstedt (236612).
 Informasjonsteknolgi (Kullklassekode: INFORMATIK14HA).
 
-Oppgave 2*/
+Oppgave 2 - UnikeTall
+*/
 
 import javax.swing.*;
 import java.util.*;
 
 public class UnikeTall
 {
-    int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
+	int[] array; // Deklarasjon av array for lagring av tilfeldige heltall
     int lowerconstant = 100; // Deklarasjon av nedre grense
     int upperconstant = 1000; // Deklarasjon av øvre grense
     JTextArea output = new JTextArea("");
     Random generator = new Random();
     String utskrift = "";
-
 
     /* Deklarasjon av array for lagring av tilfeldige heltall og andre
     nødvendige variabler og/eller konstanter.  */
@@ -163,11 +163,11 @@ public class UnikeTall
 
 		JOptionPane.showMessageDialog(null, tekstområde, "Unike tall", JOptionPane.PLAIN_MESSAGE);
 	}
-   /*Metode som viser tallene i arrayen i et tekstområde, som mottas
-     som parameter. I tillegg skal det, i tekstområdet, skrives ut
-     opplysninger om hvilket tall som er minst, hvilket som er størst,
-     hva som er gjennomsnittsverdien, og hvilken heltallsverdi som
-     er nærmest gjennomnittet, jfr bildet over. Gjennomsnittverdien
-     skal skrives ut med en desimal. Legg inn mellomrom mellom tallene
-     og skriv ut et passende antall tall per linje. */
+	/*Metode som viser tallene i arrayen i et tekstområde, som mottas
+	som parameter. I tillegg skal det, i tekstområdet, skrives ut
+	opplysninger om hvilket tall som er minst, hvilket som er størst,
+	hva som er gjennomsnittsverdien, og hvilken heltallsverdi som
+	er nærmest gjennomnittet, jfr bildet over. Gjennomsnittverdien
+	skal skrives ut med en desimal. Legg inn mellomrom mellom tallene
+	og skriv ut et passende antall tall per linje. */
 }
