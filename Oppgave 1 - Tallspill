@@ -12,7 +12,7 @@ public class Tallspill
 {
 
   private static final int MAX = 199;
-  private static final int  MIN = 1;
+  private static final int MIN = 1;
 
   public int nyttTall()
   {
